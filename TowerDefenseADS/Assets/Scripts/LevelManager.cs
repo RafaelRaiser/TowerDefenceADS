@@ -16,4 +16,5 @@ public class LevelManager : MonoBehaviour
         instance = this; // Inicializa a instância singleton.
     }
     #endregion
+
 }
