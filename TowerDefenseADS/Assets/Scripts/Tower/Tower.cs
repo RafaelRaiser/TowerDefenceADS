@@ -6,16 +6,16 @@ using UnityEngine;
 [Serializable]
 public class Tower
 {
-    // Nome da torre, para identificação
     public string name;
-
-    // Prefab da torre que será instanciado no jogo
     public GameObject prefab;
+    public int cost;
 
-    // Construtor para inicializar a torre com nome e prefab fornecidos
-    public Tower(string _name, GameObject _prefab)
+
+// Construtor para inicializar a torre com nome e prefab fornecidos
+public Tower(string _name, GameObject _prefab)
     {
         name = _name;
         prefab = _prefab;
     }
+    
 }
