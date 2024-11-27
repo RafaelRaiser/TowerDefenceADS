@@ -5,8 +5,9 @@ using UnityEngine;
 // Classe para uma torre de fogo, que aplica um efeito de queimadura ao alvo
 public class TurretFire : Turret
 {
-    [SerializeField] private float burnDuration = 3f; // Duração do efeito de queimadura.
-    [SerializeField] private float burnDamagePerSecond = 1f; // Dano por segundo da queimadura.
+    protected Transform target; // Permite acesso pelas classes derivadas
+    [SerializeField] private float burnDuration = 5f; // Duração do efeito de queimadura
+    [SerializeField] private float burnDamagePerSecond = 10f; // Dano causado por segundo
 
     // Método que ataca o alvo aplicando dano ao longo do tempo (efeito de queimadura)
     public override void Atacar()

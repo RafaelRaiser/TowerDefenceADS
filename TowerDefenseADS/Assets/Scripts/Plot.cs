@@ -1,40 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Plot : MonoBehaviour 
-
+public class Plot : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer sr;    
-    [SerializeField] private Color hoverColor;    
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Color hoverColor;
 
-    private GameObject tower;    
-    private Color startColor;  
+    private GameObject tower;
+    private Color startColor;
 
     private void Start()
     {
-        startColor = sr.color;// Armazena cor inicial do SpriteRenderer.
+        startColor = sr.color;
     }
-    private void OnMouseEnter()    // Método chamado quando  mouse entra na área do plot.
 
+    private void OnMouseEnter()
     {
-        sr.color = hoverColor; // Muda  cor do plot para a cor de hover.
+        sr.color = hoverColor;
     }
-    private void OnMouseExit()    // Método chamado quando  mouse sai da área do plot.
 
+    private void OnMouseExit()
     {
-        sr.color = startColor;// Restaura  cor inicial do plot.
+        sr.color = startColor;
     }
-    private void OnMouseDown()    // Método chamado quando mouse clica no plot.
 
+    private void OnMouseDown()
     {
-        if (tower != null) return;        
+        if (tower != null) return;
 
-
-        Tower towerToBuild = BuildManager.instance.GetSelectedTower();        // Obtém a torre selecionada do BuildManager.
-
-        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);       
-
-
+        Tower towerToBuild = BuildManager.instance.GetSelectedTower();
+        if (towerToBuild != null && GameManager.instance.SpendMoney(towerToBuild.cost))
+        {
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Debug.Log("Dinheiro insuficiente ou torre não selecionada!");
+        }
     }
 }

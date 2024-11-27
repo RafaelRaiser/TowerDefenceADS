@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-// Script para projéteis disparados por torres, movendo-se em direção ao alvo e causando dano
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb; // Rigidbody2D para controlar a física do projétil.
     [SerializeField] private float bulletSpeed = 5f; // Velocidade do projétil.
     [SerializeField] private int bulletDamage = 1; // Dano que o projétil causa ao colidir.
+    [SerializeField] public GameObject BulletPrefab;
 
     private Transform target; // Alvo atual do projétil.
 
-    // Define o alvo do projétil.
     public void SetTarget(Transform _target)
     {
         target = _target;
@@ -19,16 +16,21 @@ public class Bullet : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!target) return; // Verifica se há um alvo válido.
+        if (!target) return;
 
-        Vector2 direction = (target.position - transform.position).normalized; // Calcula a direção.
-        rb.velocity = direction * bulletSpeed; // Define a velocidade e direção do projétil.
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.velocity = direction * bulletSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // Aplica dano ao alvo e destrói o projétil após a colisão
-        other.gameObject.GetComponent<Health>().Damaged(bulletDamage);
+        Destroy(BulletPrefab);
+        // Aplica dano ao alvo e destrói o projétil após a colisão.
+        var health = other.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.Damaged(bulletDamage);
+        }
         Destroy(gameObject);
     }
 }

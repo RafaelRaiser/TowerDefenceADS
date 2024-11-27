@@ -7,9 +7,10 @@ using static UnityEngine.GraphicsBuffer;
 // Torre que aplica um efeito de desaceleração nos inimigos no alcance
 public class TurretSlomo : Turret, Iatacavel
 {
-    [SerializeField] private float aps = 4f; // Ataques por segundo.
-    [SerializeField] private float FreezeTime = 1f; // Duração do efeito de congelamento.
+    [SerializeField] protected float aps = 4f; // Ataques por segundo.
+    [SerializeField] protected float FreezeTime = 1f; // Duração do efeito de congelamento.
 
+    [SerializeField] protected float timeUntilFire;
     private void Update()
     {
         timeUntilFire += Time.deltaTime; // Acumula o tempo até o próximo ataque.
