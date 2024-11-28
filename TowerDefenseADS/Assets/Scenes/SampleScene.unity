@@ -3680,7 +3680,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752003975}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
         m_MethodName: SetSelectedTower
         m_Mode: 3
@@ -7286,7 +7286,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752003975}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
         m_MethodName: SetSelectedTower
         m_Mode: 3
@@ -9733,54 +9733,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1752003971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53cb66bb1cd913b4a897247b3847db2c, type: 3}
+  m_Script: {fileID: 11500000, guid: b9f3fbbe315a761429915add8a9746c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 8282016132933462297, guid: 28d7dfcf3c3695b4d9b80f24dd917eab, type: 3}
-  - {fileID: 8282016132933462297, guid: 6cffb79e546ad4648bdf64d2fb63b3cc, type: 3}
-  - {fileID: 8282016132933462297, guid: ae91bffa999a323479532160ee90d025, type: 3}
-  - {fileID: 5646289322033020358, guid: 1d5e066146c2b9e4c814a0688f87d792, type: 3}
-  - {fileID: 8282016132933462297, guid: 70c6e1667580b6f48baf95ef1b5f8202, type: 3}
-  enemiesPerSecond: 2
-  timeBetweenWaves: 5
-  difficultyScalingFactor: 1.5
-  enemiesPerSecondCap: 25
---- !u!114 &1752003975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752003971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c8cad0bc823554d88b53e14a5773a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towers:
-  - name: Basic Turret
-    prefab: {fileID: 1059042359612664021, guid: 1c13bc8d941bc4647af6f9f38fde25af, type: 3}
-    cost: 100
-  - name: Slowmo Turret
-    prefab: {fileID: 1059042359612664021, guid: b9558aa8d4f96fe43ac3af859f39d628, type: 3}
-    cost: 250
-  - name: Fire Turret
-    prefab: {fileID: 1059042359612664021, guid: f8bd6ff3258471c4b91cdc904a9031c0, type: 3}
-    cost: 200
---- !u!114 &1752003976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752003971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 173fe7d61d785d847a3e0ff600e1c8d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPoint: {fileID: 1787740349}
   path:
   - {fileID: 2005405410}
   - {fileID: 1765145802}
@@ -9792,6 +9747,39 @@ MonoBehaviour:
   - {fileID: 434061101}
   - {fileID: 43796247}
   - {fileID: 484513123}
+  startPoint: {fileID: 1787740349}
+  gameOverPanel: {fileID: 0}
+  currency: 0
+--- !u!114 &1752003975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752003971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edc1373207a25245b13def6dcfaa254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inimigoBase: 7
+  inimigosPorSeg: 0.5
+  tempoEntreOrdas: 4
+  dificuldade: 0.85
+  prefabInimigo: []
+--- !u!114 &1752003976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752003971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6318a348317018446bf2374a0ef17317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towers: []
 --- !u!1 &1765145801
 GameObject:
   m_ObjectHideFlags: 0
@@ -11649,7 +11637,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752003975}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildManager, Assembly-CSharp
         m_MethodName: SetSelectedTower
         m_Mode: 3

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6458838690121565601}
   - component: {fileID: 7483463767343254987}
-  - component: {fileID: -8224437517341032486}
   m_Layer: 0
   m_Name: Fire Turret
   m_TagString: Untagged
@@ -86,27 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8224437517341032486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059042359612664021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f74cc4309d36de44a944e579306d933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetingRange: 3
-  enemyMask:
-    serializedVersion: 2
-    m_Bits: 8
-  bulletPrefab: {fileID: 2003114535426397105, guid: 477bd980dec025b49b7de87cafdd69b2, type: 3}
-  firingPoint: {fileID: 211147248100111750}
-  bps: 1
-  burnDuration: 8
-  burnDamagePerSecond: 7
 --- !u!1 &2709747414101283546
 GameObject:
   m_ObjectHideFlags: 0

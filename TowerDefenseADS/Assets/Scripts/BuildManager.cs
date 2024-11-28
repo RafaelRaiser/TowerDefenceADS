@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
-    public static BuildManager instance;
+    // Instância única do BuildManager (Singleton)
+    public static BuildManager Instance;
 
-    [SerializeField] private Tower[] towers;
-    private Tower selectedTower;
+    [SerializeField] private Tower[] towers; // Array de torres disponíveis para construção
 
+    private int selectedTower = 0; // Índice da torre selecionada atualmente
+
+    // Método chamado na inicialização do objeto
     private void Awake()
     {
-        instance = this;
+        Instance = this; // Define a instância do BuildManager
     }
 
+    // Método para obter a torre atualmente selecionada
     public Tower GetSelectedTower()
     {
-        return selectedTower;
+        return towers[selectedTower]; // Retorna a torre com base no índice selecionado
     }
 
-    public void SetSelectedTower(int index)
+    // Método para definir a torre selecionada
+    public void SetSelectedTower(int _selectedTower)
     {
-        if (index < 0 || index >= towers.Length) return;
-        selectedTower = towers[index];
+        selectedTower = _selectedTower; // Atualiza o índice da torre selecionada
     }
 }
