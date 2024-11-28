@@ -5,7 +5,7 @@ using System.Collections;
 public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsShowListener
 {
     // Singleton para acesso global ao AdManager
-    public static AdManager instance;
+    public static AdsManager instance;
 
     // ID do projeto Unity Ads
     private string gameId = "5730790";

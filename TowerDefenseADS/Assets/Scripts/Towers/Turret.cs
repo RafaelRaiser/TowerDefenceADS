@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torre : MonoBehaviour
+public class Turret : MonoBehaviour
 {
-    [Header("References")]
     [SerializeField] protected Transform turretRotationPoint; // Ponto de rotação da torre
     [SerializeField] protected LayerMask enemyMask; // Máscara para identificar quais objetos são inimigos
     [SerializeField] protected GameObject bulletPrefab; // Prefab da bala que a torre irá disparar
     [SerializeField] protected Transform firingPoint; // Ponto de onde a bala será disparada
 
-    [Header("Attributes")]
     [SerializeField] protected float targetinRange = 5f; // Raio de alcance da torre para identificar inimigos
     [SerializeField] protected float rotationSpeed = 5f; // Velocidade de rotação da torre
     [SerializeField] protected float bps = 1f; // Balas por segundo (quantidade de disparos que a torre faz em um segundo)
@@ -52,7 +50,7 @@ public class Torre : MonoBehaviour
     {
         // Instancia a bala no ponto de disparo
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        TIros bulletScript = bulletObj.GetComponent<TIros>(); // Obtém o script da bala
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>(); // Obtém o script da bala
         bulletScript.SetTarget(target); // Define o alvo da bala
     }
 

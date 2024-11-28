@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Slow : Bullet
 {
-    [Header("Atributos do Projétil Lento")]
     [SerializeField] private float duracaoLentidao = 3f; // Duração do efeito de lentidão
     [SerializeField] private float fatorLentidao = 0.5f; // Fator de redução de velocidade (ex.: 0.5 é 50% da velocidade)
 
@@ -12,14 +11,14 @@ public class Slow : Bullet
     {
         base.OnTriggerEnter2D(collision); // Chama o método base para aplicar dano
 
-        inimigoBase inimigo = collision.GetComponent<inimigoBase>();
+        Enemy inimigo = collision.GetComponent<Enemy>();
         if (inimigo != null)
         {
             StartCoroutine(AplicarLentidao(inimigo)); // Aplica o efeito de lentidão
         }
     }
 
-    private IEnumerator AplicarLentidao(inimigoBase inimigo)
+    private IEnumerator AplicarLentidao(Enemy inimigo)
     {
         // Assumindo que o inimigo tem uma propriedade moveSpeed
         float velocidadeOriginal = inimigo.moveSpeed; // Supondo que o inimigo tem a propriedade moveSpeed

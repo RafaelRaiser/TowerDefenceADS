@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FireTurret : Turret
+public class FireTurret : MonoBehaviour
 {
-    [SerializeField] private float fireDamagePerSecond = 5f; // Dano por segundo do fogo
-    [SerializeField] private float burnDuration = 3f; // Duração do efeito de fogo
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+    [SerializeField] private float fireDamagePer;
+    [SerializeField] private float fireRate = 1f;
 
-    // Método sobrescrito para disparar uma bala de fogo
-    protected override void Shoot()
+    private Transform target;
+
+    private void Update()
     {
-        if (target == null) return; // Se não há alvo, não faz nada
+        if (target == null) return;
+        FireAtTarget();
+    }
 
-        // Instancia a bala no ponto de disparo
-        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        BulletFire bulletScript = bulletObj.GetComponent<BulletFire>();
-
-        // Configura os atributos específicos da bala de fogo
-        bulletScript.SetTarget(target);
-        bulletScript.SetFireDamage(fireDamagePer\Second, burnDuration);
+    private void FireAtTarget()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.Seek(target, fireDamagePer);
+        }
     }
 }

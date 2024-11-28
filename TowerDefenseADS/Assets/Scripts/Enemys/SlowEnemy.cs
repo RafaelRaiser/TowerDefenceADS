@@ -1,54 +1,51 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class SlowEnemy : inimigoBase
+public class SlowEnemy : Enemy
 {
-    [SerializeField] private float aumentoDeVelocidade = 1.05f; // Fator de aumento de velocidade a cada ponto alcançado
+    [SerializeField] private float aumentoDeVelocidade = 1.05f;
 
     protected override void Start()
     {
-        base.Start(); // Chama o método Start da classe base para inicializar os atributos comuns
-        vidaAtual = 150; // Define a vida inicial específica para este inimigo
+        base.Start();
+        vidaAtual = 200;
     }
 
     protected override void Update()
     {
-        base.Update(); // Chama o método Update da classe base para manter comportamentos padrão
+        base.Update();
+        float distancia = Vector2.Distance(transform.position, alvo.position);
 
-        float distancia = Vector2.Distance(transform.position, alvo.position); // Calcula a distância até o alvo
-
-        // Verifica se está próximo o suficiente do alvo antes de atualizar o próximo ponto
         if (distancia <= 0.2f)
         {
-            Destiny(); // Atualiza o destino se o inimigo estiver próximo do alvo
+            Destiny();
         }
     }
 
     protected override void Destiny()
     {
-        pathIndex++; // Move para o próximo ponto do caminho
+        pathIndex++;
 
-        // Se o inimigo alcança o final do caminho
         if (pathIndex >= LevelManager.main.path.Length)
         {
             LevelManager.main.GameOver();
-            OnMorte(); // Chama o método para lidar com a morte do inimigo
+            OnDeath();
         }
         else
         {
-            alvo = LevelManager.main.path[pathIndex]; // Atualiza o alvo para o próximo ponto do caminho
-            moveSpeed *= aumentoDeVelocidade; // Aumenta a velocidade do inimigo a cada ponto alcançado
+            alvo = LevelManager.main.path[pathIndex];
+            moveSpeed *= aumentoDeVelocidade;
         }
     }
 
     public override void Move()
     {
-        Vector2 direcao = (alvo.position - transform.position).normalized; // Calcula a direção do movimento
-        rb.velocity = direcao * moveSpeed; // Atualiza a velocidade do rigidbody do inimigo
+        Vector2 direcao = (alvo.position - transform.position).normalized;
+        rb.velocity = direcao * moveSpeed;
     }
 
     public override void Damage(int dano)
     {
-        base.ReceberDano(dano); // Chama o método da classe base para aplicar o dano
-        // Aqui você pode adicionar lógica adicional ao receber dano, se necessário
+        base.Damage(dano);
     }
 }
