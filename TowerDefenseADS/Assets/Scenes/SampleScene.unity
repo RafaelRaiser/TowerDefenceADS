@@ -9748,7 +9748,7 @@ MonoBehaviour:
   - {fileID: 43796247}
   - {fileID: 484513123}
   startPoint: {fileID: 1787740349}
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1398246453}
   currency: 0
 --- !u!114 &1752003975
 MonoBehaviour:
@@ -12620,7 +12620,6 @@ GameObject:
   - component: {fileID: 2128761954}
   - component: {fileID: 2128761953}
   - component: {fileID: 2128761952}
-  - component: {fileID: 2128761956}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -12713,21 +12712,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2128761956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128761951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e2f38fcdaf6fd4b9597a37e0aad971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMoney: 500
-  moneyText: {fileID: 1372316935}
-  gameOverUI: {fileID: 1398246453}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
