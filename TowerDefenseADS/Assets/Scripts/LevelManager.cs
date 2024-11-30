@@ -7,8 +7,9 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
     public Transform[] path;
     public Transform startPoint;
-    private bool isGOver = false; // Para evitar chamadas repetidas do Game Over
-    public GameObject gameOver; 
+    private bool isGameOver = false; // Para evitar chamadas repetidas do Game Over
+
+    public GameObject gameOverPanel; // Painel de Game Over (defina no Inspector)
 
     public int currency;
 
@@ -40,23 +41,23 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // Método para adicionar recompensa
+    // Método para adicionar 100 moedas como recompensa
     public void RewardCurrency()
     {
-        int reward = Random.Range(50, 5000);
+        int reward = Random.Range(100, 1000);
         IncreaseCurrency(reward);
         Debug.Log($"Você ganhou {reward} moedas!");
     }
 
     public void GameOver()
     {
-        if (isGOver) return; // Evita que o Game Over seja chamado várias vezes
+        if (isGameOver) return; // Evita que o Game Over seja chamado várias vezes
 
-        isGOver = true; // Marca que o jogo terminou
+        isGameOver = true; // Marca que o jogo terminou
         Debug.Log("Game Over! Um inimigo alcançou o ponto final.");
 
         // Exibe o painel de Game Over
-        gameOver.SetActive(true);
+        gameOverPanel.SetActive(true);
         Time.timeScale = 0;
         if (!AdManager.instance.isGamePausedByAd)
         {
@@ -71,9 +72,9 @@ public class LevelManager : MonoBehaviour
     }
     public void Reiniciar()
     {
-        gameOver.SetActive(false);
+        gameOverPanel.SetActive(false);
         Time.timeScale = 1;
-        isGOver=false;
+        isGameOver=false;
 
     }
 }

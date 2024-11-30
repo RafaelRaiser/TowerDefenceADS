@@ -7,8 +7,10 @@ public class BuildManager : MonoBehaviour
     // Instância única do BuildManager (Singleton)
     public static BuildManager Instance;
 
+    [Header("References")]
     [SerializeField] private Tower[] towers; // Array de torres disponíveis para construção
 
+    [Header("Attributes")]
     private int selectedTower = 0; // Índice da torre selecionada atualmente
 
     // Método chamado na inicialização do objeto
